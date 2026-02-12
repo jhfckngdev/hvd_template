@@ -1,0 +1,50 @@
+/* Reset & Globals */
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; width: 100%; overflow: hidden; background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%); background-size: 400% 400%; animation: gradientShift 15s ease infinite; color: white; font-family: 'Work Sans', system-ui, sans-serif; }
+@keyframes gradientShift { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+
+/* Hearts & Sparkles */
+.hearts-background, .sparkles { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.sparkles { z-index: 1; }
+.heart-float { position: absolute; font-size: 20px; animation: floatHeart 10s infinite ease-in-out; opacity: 0.3; }
+@keyframes floatHeart { 0%{transform:translateY(100vh) rotate(0deg);opacity:0;} 10%,90%{opacity:0.6;} 100%{transform:translateY(-100px) rotate(360deg);opacity:0;} }
+.sparkle { position:absolute;width:4px;height:4px;background:white;border-radius:50%;animation:sparkleAnim 3s infinite;box-shadow:0 0 6px white; }
+@keyframes sparkleAnim {0%,100%{opacity:0;transform:scale(0);}50%{opacity:1;transform:scale(1);}}
+
+/* Music Control */
+.music-control { position: fixed; top: 20px; right:20px; z-index:1000; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.4); border-radius:50px; padding:12px 20px; cursor:pointer; font-size:14px; font-weight:600; color:white; display:flex; align-items:center; gap:8px; box-shadow:0 4px 15px rgba(0,0,0,0.2); transition: all .3s; }
+.music-control:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.music-control:active { transform: scale(0.95); }
+.music-icon { font-size:18px; animation: musicPulse 1s infinite; }
+@keyframes musicPulse {0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.music-control.paused .music-icon { animation:none; }
+
+/* Container & Sections */
+.container { height:100vh; width:100vw; position:relative; text-align:center; z-index:2; overflow:hidden; }
+.one, .three, .four, .five, .six, .nine { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:5vh 5vw; }
+
+/* Texts & animations */
+.one h1, .three p, .five p, .idea-5, .idea-6, .wish-hbd { text-align:center; text-shadow:0 0 30px rgba(255,105,180,0.7); }
+.one h1 { font-family:'Great Vibes', cursive; font-size:clamp(4.5rem,12vw,9rem); }
+.three p { font-family:'Great Vibes', cursive; font-size:clamp(4.5rem,12vw,9rem); }
+.five p { position:absolute;width:100%;max-width:90%; text-align:center; font-family:'Dancing Script', cursive; font-size:clamp(3.2rem,8.5vw,6.8rem); font-weight:700; line-height:1.25; text-shadow:0 0 25px rgba(255,105,180,0.6); }
+.idea-5 { font-family:'Pacifico',cursive; font-size:clamp(5rem,13vw,9rem); font-weight:700; background: linear-gradient(45deg,#FFD700,#FFA500,#FF69B4,#FFD700); background-size:300% 300%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation: gradientText 3s ease infinite; }
+@keyframes gradientText {0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+.idea-6 { font-family:'Great Vibes',cursive; font-size:clamp(12rem,32vw,22rem); font-weight:900; letter-spacing:0.05em; line-height:0.9; text-shadow:0 0 40px rgba(255,105,180,0.8);}
+.idea-6 span { display:inline-block; }
+.text-box { width:min(90%,680px); background:rgba(255,255,255,0.14); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.3); border-radius:20px; text-align:left; padding:1.6rem 1.5rem 4.2rem; font-size:clamp(1.05rem,3.4vw,1.35rem); box-shadow:0 10px 35px rgba(0,0,0,0.28); position:relative; }
+.fake-btn { position:absolute; bottom:1rem; right:1rem; background:#2196f3; color:white; padding:.65rem 1.3rem; border-radius:10px; font-weight:500; font-size:0.95rem; }
+.girl-dp { width:min(80vmin,420px); height:min(80vmin,420px); max-height:58vh; object-fit:cover; border-radius:50%; border:12px solid rgba(255,255,255,0.4); box-shadow:0 25px 70px rgba(0,0,0,0.5),0 0 50px rgba(255,105,180,0.6); animation:photoGlow 3s ease-in-out infinite;}
+@keyframes photoGlow {0%,100%{box-shadow:0 25px 70px rgba(0,0,0,0.5),0 0 50px rgba(255,105,180,0.6);}50%{box-shadow:0 25px 70px rgba(0,0,0,0.5),0 0 80px rgba(255,105,180,0.9),0 0 120px rgba(255,105,180,0.4);}}
+.wish-hbd { font-family:'Pacifico',cursive; font-size:clamp(3.5rem,9vw,6.5rem); font-weight:700; text-shadow:0 4px 20px rgba(0,0,0,0.3);}
+.wish-hbd span{display:inline-block;}
+.wish h5{font-family:'Sacramento',cursive;font-size:clamp(2.2rem,6vw,3.5rem);opacity:0.95;}
+.baloons img { position:absolute; width:clamp(80px,18vw,180px); opacity:0; filter:drop-shadow(0 10px 20px rgba(0,0,0,0.3));}
+#dmback,#replay{margin-top:2vh;font-family:'Dancing Script',cursive;font-size:clamp(2.5rem,6vw,4rem);font-weight:700; cursor:pointer;}
+#replay{color:#FFD700;text-decoration:underline;text-shadow:0 0 20px rgba(255,215,0,0.6);}
+.last-smile{font-size:clamp(5rem,14vw,8rem);margin-top:1em;}
+
+/* Responsive */
+@media (max-width:560px){.idea-5{font-size:clamp(4.2rem,11vw,7rem)!important;}.idea-6{font-size:clamp(9rem,26vw,16rem)!important;}.wish-hbd{font-size:clamp(3rem,8vw,5rem);}}
+@media (max-height:620px){.idea-5{font-size:5.5rem!important;}.idea-6{font-size:10rem!important;}}
+@supports(-webkit-touch-callout:none){html,body,.container{height:-webkit-fill-available;}}
